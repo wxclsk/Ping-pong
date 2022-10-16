@@ -20,3 +20,20 @@ win_height = 500
 window = display.set_mode(win_width,win_height)
 fon = (200,255,255)
 window.fill(fon)
+# прапорці, які відповідають за стан гри
+game = True
+finish = False
+
+clock = time.Clock()
+FPS = 60
+# ігровий цикл
+while game:
+    for e in event.get():
+        if e.type == QUIT:
+            game = False
+    if finish != True
+        window.fill(fon)
+    display.update()
+    clock.tick(FPS)
+ 
+    
