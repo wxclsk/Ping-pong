@@ -21,9 +21,12 @@ class Player(GameSprite):
         if [K_DOWN] and self.rect.y < 420: 
             self.rect.y += self.speed           
     def update_left(self):
-        pass
+        if [K_w] and self.rect.y >5:
+            self.rect.y -= self.speed
+        if [K_s] and self.rect.y < 420: 
+            self.rect.y += self.speed  
 racket_right = Player("racket_r.png",520,200,4,50,150)
-racket_left = Player("racket_l.png",400,200,4,50,150)
+racket_left = Player("racket_l.png",30,200,4,50,150)
 ball = GameSprite("ball.png",200,200,4,50,50)
 win_width = 600
 win_height = 500
@@ -37,6 +40,9 @@ finish = False
 
 clock = time.Clock()
 FPS = 60
+
+speed_x = 3
+speed_y = 3
 # ігровий цикл
 while game:
     for e in event.get():
@@ -46,6 +52,10 @@ while game:
         window.fill(fon)
         racket_right.update_right()
         racket_left.update_left()
+        ball.rect.x += speed_x
+        ball.rect.y += speed_y
+        if ball.rect.y > win_height-50 or ball.rect.y <0:
+            speed_y *= -1
         rocket_right.reset()
         rocket_left.reset()
         ball.reset()   
