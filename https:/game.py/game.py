@@ -48,7 +48,7 @@ while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
-    if finish != True
+    if finish != True:
         window.fill(fon)
         racket_right.update_right()
         racket_left.update_left()
