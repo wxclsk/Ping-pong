@@ -56,6 +56,15 @@ while game:
         ball.rect.y += speed_y
         if ball.rect.y > win_height-50 or ball.rect.y <0:
             speed_y *= -1
+        if sprite.collide_rect(racket_right,ball) or sprite.collide_rect(racket_left,ball):
+            speed_x *= -1
+            speed_y *= -1
+        if ball.rect.x < 0:
+            finish = True
+            game_over = True
+        if ball.rect.x > win_weight:
+            finish = True
+            game_over = True
         rocket_right.reset()
         rocket_left.reset()
         ball.reset()   
